@@ -16,16 +16,15 @@
 //               .map( el => el ** 2 );
 // }
 
-
 // function squareAllAndRemoveNegatives3(arr){
-    
+
 //     const accumulator = [];
 
 //     for (const number of arr) {
-        
+
 //         if ( number >= 0) {
 //           const newNumber = number ** 2
-//           accumulator.push(newNumber);  
+//           accumulator.push(newNumber);
 //         }
 
 //     }
@@ -34,7 +33,7 @@
 // }
 
 // function squareAllAndRemoveNegatives4(arr){
-    
+
 //     return arr.reduce((acc, curr)=> {
 //         if ( curr >= 0) {
 //             const newNumber = curr ** 2
@@ -49,7 +48,6 @@
 
 // console.log(squareAllAndRemoveNegatives4(testArray));
 
-
 // // scrivi una funzione che dato un array di numeri
 // // somma tutti quelli divisibili per 3;
 
@@ -59,7 +57,7 @@
 //     const sum = divisibleBy3Array.reduce((acc, curr) => acc + curr, 0);
 
 //     return sum;
-    
+
 // }
 
 // function sumAllDivisibleByThree1(arr) {
@@ -68,11 +66,11 @@
 // }
 
 // function sumAllDivisibleByThree2(arr){
-    
+
 //     let accumulator = 0;
 
 //     for (const number of arr) {
-        
+
 //         if( number % 3 === 0 ){
 //             accumulator = accumulator + number;
 //         }
@@ -83,7 +81,7 @@
 // }
 
 // function sumAllDivisibleByThree4(arr){
-    
+
 //     return arr.reduce((acc, curr) => {
 //         if( curr % 3 === 0 ){
 //             acc = acc + curr;
@@ -93,9 +91,7 @@
 
 // }
 
-
 // console.log(sumAllDivisibleByThree4(testArray));
-
 
 // data una stringa di elementi separati da virgole
 // convertire gli elementi in numeri,
@@ -132,9 +128,8 @@
 //     const sum = onlyNumbersArray.reduce((acc, curr) => acc + curr, 0);
 
 //     return sum;
-    
-// }
 
+// }
 
 // function convertToNumbersAndSumAll2(str){
 //     return str.split(',')
@@ -143,20 +138,18 @@
 //               .reduce((acc, curr) => acc + curr, 0);
 // }
 
-
 // function convertToNumbersAndSumAll3(str){
 
 //     const stringArray = str.split(',')
-    
+
 //     let accumulator = 0;
 
 //     for (const str of stringArray) {
-        
+
 //         const number = parseFloat(str);
 //         if (!isNaN(number)) {
 //             accumulator = accumulator + number;
 //         }
-
 
 //     }
 
@@ -177,16 +170,13 @@
 //     //           .reduce((a, c) => !isNaN(parseFloat(c)) ? a + parseFloat(c) : a, 0);
 // }
 
-
 // console.log(convertToNumbersAndSumAll4(testString));
 
-
-
-//1)  Dato un array di stringhe, 
+//1)  Dato un array di stringhe,
 //   eliminare tutte quelle che non contengono la lettera p
 //   e ritornare la somma delle lunghezze delle rimanenti
 
-const test1 = ['pippo', 'pluto', 'qui', 'quo', 'qua', 'paperone'];
+const test1 = ["pippo", "pluto", "qui", "quo", "qua", "paperone"];
 
 //2) Dato un array di numeri, moltiplicarli per il loro indice
 //   rimuovere quelli maggiori di 1000
@@ -197,4 +187,118 @@ const test2 = [100, 10, 24, -20, 300, 6, 100, 300];
 //3) Data una stringa, eliminare tutte le parole più corte di 4 caratteri
 //   e restituirle in un array ordinate per lunghezza dalla più lunga
 
-const test3 = 'ho fatto il bucato ieri sera ma si è colorato tutto di violetto';
+const test3 = "ho fatto il bucato ieri sera ma si è colorato tutto di violetto";
+
+//TYPEOF------------------------------------------------------------
+
+// const pippo = 12;
+// const pluto = "ciao mondo";
+// const paperino = true;
+// const qui = undefined;
+// const quo = null;
+// const qua = NaN;
+
+// const clarabella = { name: "isabella", yob: 1996 };
+// const orazio = ["ciao", "hello"];
+
+// console.log(typeof pippo);
+// console.log(typeof pluto);
+// console.log(typeof paperino);
+// console.log(typeof qui);
+// console.log(typeof quo);
+// console.log(typeof qua);
+// console.log(qua === NaN);
+// console.log(isNaN(qua));
+
+// console.log(typeof clarabella);
+// console.log(typeof orazio);
+// console.log(clarabella);
+// console.log(orazio);
+
+//CAP 4 ES 1----------------------------------------------------
+
+// function range(start, end, step = 1, reversed = false){
+//     const tempArray = [];
+//     if (reversed) {
+//         if (start < end){
+//             return tempArray;
+//         }
+//         for (let i = start; i >= end; i -= step) {
+//             tempArray.push(i);
+//         }
+//     } else {
+//         if (end < start){
+//             return tempArray;
+//         }
+//         for (let i = start; i <= end; i += step) {
+//             tempArray.push(i);
+//         }
+//     }
+//     return tempArray;
+// }
+
+// function range(start, end) {
+//     const tempArray = [];
+
+//     if (end < start) {
+//         return tempArray;
+//     }
+//     for (let i = start; i <= end; i++) {
+//         tempArray.push(i);
+//     }
+
+//     return tempArray;
+// }
+
+// console.log(range(-5, 50));
+
+
+// function sum(numbers){
+//     return numbers.reduce((acc, curr) => acc + curr, 0);
+// }
+
+// console.log(sum(range(0, 10)))
+
+
+//CAP 4 ES 2----------------------------------------------------
+
+
+let testArray = ['qui', 'quo', 'qua'];
+
+
+function reverseArray(arr){
+
+    const tempArray = [];
+
+    for (let i = arr.length - 1; i >= 0 ; i--) {
+        const element = arr[i];
+        tempArray.push(element);
+    }
+
+    return tempArray;
+}
+
+
+// const newArray = reverseArray(testArray);
+// console.log(newArray);
+// console.log(testArray);
+
+testArray = reverseArray(testArray);
+console.log(testArray);
+
+
+// function reverseArrayInPlace(arr){
+
+//     const cloneArray = [...arr]
+//     let j = 0;
+//     for (let i = cloneArray.length - 1; i >= 0 ; i--) {
+//         const element = cloneArray[i];
+//         arr[j] = element;
+//         j++;
+//     }
+
+// }
+
+// reverseArrayInPlace(testArray);
+
+// console.log(testArray);
