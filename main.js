@@ -37,6 +37,12 @@ console.log("potenza 2**5", 2**5);
 console.log('modulo 5 % 2', 5 % 2);
 console.log('modulo 12 % 5', 12 % 5);
 
+console.log('10 è pari?', 10 % 2 === 0)//true
+console.log('11 è pari?', 11 % 2 === 0)//false
+
+console.log('9 è divisibile per 3?', 9 % 3 === 0)//true
+console.log('10 è divisibile per 3?', 10 % 3 === 0)//false
+
 //MATH
 console.log('radice quadrata 9', Math.sqrt(9));
 console.log('arrotondmento 9.6', Math.round(9.6));
@@ -47,7 +53,7 @@ console.log("io sono una stringa");
 console.log('io sono una stringa');
 console.log('io sono una "stringa"');
 console.log("l'apostrofo è importante");
-console.log("\"l'apostrofo\" è importante");
+console.log("\"l'apostrofo\" è importante ma anche il backslash \"\\\" non è da meno");
 console.log("\"l'apostrofo\" è importante\nnon ne posso fare a meno");
 
 console.log(`"l'apostrofo" è importante
