@@ -227,3 +227,49 @@ console.log('sum all strings', sumString)
 // moltiplica tra loro tutti i numeri di testArray
 const product = testArray.reduce((a, c) => a * c, 1);
 console.log('multiplyAll', product);
+
+///rimuovi le parolecon indice pari e rendi maiuscola la prima lettera delle altre
+
+const stocazzo = testArray2.filter((_, i) => i % 2 === 1)
+                           .map(str => {
+                                const firstChar = str[0];
+                                const restOfStr = str.slice(1);
+                                const newStr = firstChar.toUpperCase() + restOfStr;
+                                return newStr;
+                           });
+
+console.log('primo pezzettino', stocazzo);
+
+const stocazzo2 = testArray2.reduce((a, c, i) => {
+    if(i % 2 === 1) {
+        const firstChar = c[0];
+        const restOfStr = c.slice(1);
+        const newStr = firstChar.toUpperCase() + restOfStr;
+        a.push(newStr);
+        return a;
+    } else {
+        return a;
+    }
+}, []);
+
+console.log('super reduce', stocazzo2);
+
+
+function isOdd(number){
+    if (i % 2 === 1) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function capitalizeFirstChar(str){
+    const firstChar = str[0];
+    const restOfStr = str.slice(1);
+    const newStr = firstChar.toUpperCase() + restOfStr;
+    return newStr;
+}
+
+
+const stocazzo3 = testArray2.filter(isOdd)
+                           .map(capitalizeFirstChar);
