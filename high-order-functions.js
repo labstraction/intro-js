@@ -176,100 +176,172 @@ const testArray2 = ['pippo', 'pluto', 'paperino', 'clarabella', 'minnie'];
 // console.log('keep odd index', newArray15);
 
 ///REDUCE
-function sumAll(arrayOfNumbers){
+// function sumAll(arrayOfNumbers){
 
-    let accoumulator = 0;
+//     let accoumulator = 0;
 
-    for (let i = 0; i < arrayOfNumbers.length; i++) {
+//     for (let i = 0; i < arrayOfNumbers.length; i++) {
 
-        const number = arrayOfNumbers[i];
+//         const number = arrayOfNumbers[i];
 
-        accoumulator = accoumulator + number;
+//         accoumulator = accoumulator + number;
 
-    }
+//     }
 
-    return accoumulator;
-}
+//     return accoumulator;
+// }
 
-const sum = sumAll(testArray)
-console.log('sum all', sum);
-
-
-//const testArray = [2, 5, 7, 1, 0, 100, 103];
+// const sum = sumAll(testArray)
+// console.log('sum all', sum);
 
 
-function reduce(array, reducingFunction, startingAccumulator){
-                        //""
-    let accoumulator = startingAccumulator;
+// //const testArray = [2, 5, 7, 1, 0, 100, 103];
 
-    for (let i = 0; i < array.length; i++) {
 
-        const current = array[i];
+// function reduce(array, reducingFunction, startingAccumulator){
+//                         //""
+//     let accoumulator = startingAccumulator;
+
+//     for (let i = 0; i < array.length; i++) {
+
+//         const current = array[i];
  
-        accoumulator = reducingFunction(accoumulator, current, i, array);
-    }
-    return accoumulator;
+//         accoumulator = reducingFunction(accoumulator, current, i, array);
+//     }
+//     return accoumulator;
+// }
+//                         //14         //1
+// function sum2Numbers(accoumulator, current){
+//     const newAccumulator = accoumulator + current;
+//     return newAccumulator;
+// }
+
+// // const sum1 = reduce(testArray, sum2Numbers, 0)
+// const sum1 = testArray.reduce(sum2Numbers, 0)
+// console.log('new sum all', sum1)
+
+// // concatena le stringhe di testArray2
+// const sumString = testArray2.reduce((a, c) => a + c, "");
+// console.log('sum all strings', sumString)
+
+// // moltiplica tra loro tutti i numeri di testArray
+// const product = testArray.reduce((a, c) => a * c, 1);
+// console.log('multiplyAll', product);
+
+// ///rimuovi le parolecon indice pari e rendi maiuscola la prima lettera delle altre
+
+// const stocazzo = testArray2.filter((_, i) => i % 2 === 1)
+//                            .map(str => {
+//                                 const firstChar = str[0];
+//                                 const restOfStr = str.slice(1);
+//                                 const newStr = firstChar.toUpperCase() + restOfStr;
+//                                 return newStr;
+//                            });
+
+// console.log('primo pezzettino', stocazzo);
+
+// const stocazzo2 = testArray2.reduce((a, c, i) => {
+//     if(i % 2 === 1) {
+//         const firstChar = c[0];
+//         const restOfStr = c.slice(1);
+//         const newStr = firstChar.toUpperCase() + restOfStr;
+//         a.push(newStr);
+//         return a;
+//     } else {
+//         return a;
+//     }
+// }, []);
+
+// console.log('super reduce', stocazzo2);
+
+
+// function isOdd(number){
+//     if (i % 2 === 1) {
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }
+
+// function capitalizeFirstChar(str){
+//     const firstChar = str[0];
+//     const restOfStr = str.slice(1);
+//     const newStr = firstChar.toUpperCase() + restOfStr;
+//     return newStr;
+// }
+
+
+// const stocazzo3 = testArray2.filter(isOdd)
+//                            .map(capitalizeFirstChar);
+
+//FIND
+
+
+function isEven(nbr){
+    // if(nbr % 2 === 0){
+    //     return true;
+    // } else {
+    //     return false;
+    // }
+    return nbr % 2 === 0;
 }
-                        //14         //1
-function sum2Numbers(accoumulator, current){
-    const newAccumulator = accoumulator + current;
-    return newAccumulator;
+
+console.log(testArray.filter(isEven));
+console.log(testArray.find(isEven));
+
+//SOME
+console.log(testArray.some(isEven));
+
+//EVERY
+console.log(testArray.every(isEven));
+
+
+//SORT
+// function sortingFunctionFromBiggerTOSmaller(first, second){
+//     if (first < second) {
+//         return 1;
+//     } else if( first > second){
+//         return -1;
+//     } else {
+//         return 0;
+//     }
+// }
+
+// function sortingFunctionFromSmallerToBigger(first, second){
+//     if (first > second) {
+//         return 1;
+//     } else if( first < second){
+//         return -1;
+//     } else {
+//         return 0;
+//     }
+// }
+
+// testArray.sort(sortingFunctionFromSmallerToBigger)
+
+//Numeri in ordine crescente
+//testArray.sort((f, s) => f - s)
+
+//Numeri in ordine decrescente
+// testArray.sort((f, s) => s - f)
+
+// console.log(testArray);
+
+//dalla A alla Z
+// testArray2.sort((fString, sString) => fString.localeCompare(sString))
+
+//dalla Z alla A
+// testArray2.sort((fString, sString) => sString.localeCompare(fString))
+
+// console.log(testArray2);
+
+function betterSort(array, sortingFunction){
+    const newArray = [...array];
+    newArray.sort(sortingFunction);
+    return newArray;
 }
 
-// const sum1 = reduce(testArray, sum2Numbers, 0)
-const sum1 = testArray.reduce(sum2Numbers, 0)
-console.log('new sum all', sum1)
+const sortedArray = betterSort(testArray2, (fString, sString) => fString.localeCompare(sString));
 
-// concatena le stringhe di testArray2
-const sumString = testArray2.reduce((a, c) => a + c, "");
-console.log('sum all strings', sumString)
-
-// moltiplica tra loro tutti i numeri di testArray
-const product = testArray.reduce((a, c) => a * c, 1);
-console.log('multiplyAll', product);
-
-///rimuovi le parolecon indice pari e rendi maiuscola la prima lettera delle altre
-
-const stocazzo = testArray2.filter((_, i) => i % 2 === 1)
-                           .map(str => {
-                                const firstChar = str[0];
-                                const restOfStr = str.slice(1);
-                                const newStr = firstChar.toUpperCase() + restOfStr;
-                                return newStr;
-                           });
-
-console.log('primo pezzettino', stocazzo);
-
-const stocazzo2 = testArray2.reduce((a, c, i) => {
-    if(i % 2 === 1) {
-        const firstChar = c[0];
-        const restOfStr = c.slice(1);
-        const newStr = firstChar.toUpperCase() + restOfStr;
-        a.push(newStr);
-        return a;
-    } else {
-        return a;
-    }
-}, []);
-
-console.log('super reduce', stocazzo2);
-
-
-function isOdd(number){
-    if (i % 2 === 1) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-function capitalizeFirstChar(str){
-    const firstChar = str[0];
-    const restOfStr = str.slice(1);
-    const newStr = firstChar.toUpperCase() + restOfStr;
-    return newStr;
-}
-
-
-const stocazzo3 = testArray2.filter(isOdd)
-                           .map(capitalizeFirstChar);
+console.log(testArray2);
+console.log(sortedArray);
