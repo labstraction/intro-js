@@ -9,7 +9,6 @@
 //---------------------------------------------------------
 
 
-
 //1)Crea una classe base ContoBancario:
     //-La classe ContoBancario deve avere le seguenti proprietà: titolare (Human) saldo (numero)
     //-La classe ContoBancario deve avere i seguenti metodi:
