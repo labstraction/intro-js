@@ -7,6 +7,68 @@
 
 
 //---------------------------------------------------------
+class Human {
+    #yob;
+    #name
+    #surname;
+    constructor(name, surname, yob, nationality, gender) {
+        // const uppercaseName = name.toUpperCase()
+        // this.#name = uppercaseName;
+        this.name = name;
+        this.#surname = surname;
+        this.#yob = yob;
+        this.nationality = nationality;
+        this.gender = gender;
+    }
+
+    get name(){
+        return this.#name;
+    }
+
+    set name(value){
+        const uppercaseName = value.toUpperCase();
+        this.#name = uppercaseName;
+    }
+
+    get surname(){
+        const upperSurname = this.#surname.toUpperCase();
+        return upperSurname;
+    }
+
+
+    //getter yob
+    get yob(){
+        return this.#yob;
+    }
+    //settet yob
+    set yob(value){
+        const now = new Date();
+        const year = now.getFullYear();
+        if(value > year){
+            console.log('errore, hai inserito una data futura')
+        } else if (value < (year - 150)){
+            console.log('errore, non accettiamo vampiri')
+        } else {
+            this.#yob = value;
+        }
+    }
+
+    #getAge(){
+        const now = new Date();
+        const year = now.getFullYear();
+        const age = year - this.#yob;
+        return age;
+    }
+
+    toString(){
+        const humanStr = `Nome: ${this.name}\n` + 
+                         `Cognome: ${this.surname}\n` + 
+                         `Età: ${this.#getAge()}`;
+        return humanStr;
+    }
+
+}
+
 
 
 //1)Crea una classe base ContoBancario:
@@ -15,6 +77,20 @@
         //-toString()
         //-deposita(importo): Aggiunge l'importo al saldo.
         //-preleva(importo): Sottrae l'importo dal saldo se ci sono fondi sufficienti, altrimenti stampa un messaggio di errore.
+
+class BankAccount {
+
+    constructor(owner, balance) {
+        this.owner = owner;
+        this.balance = balance;
+    }
+}
+
+const human1 = new Human('andrea', 'asioli', 1978, 'it', 'm')
+
+const account1 = new BankAccount(human1, 100000000);
+
+console.log(account1)
 
 //2)Crea una classe derivata ContoCorrente che eredita da ContoBancario:
     //-La classe ContoCorrente deve avere le seguenti proprietà aggiuntive:
